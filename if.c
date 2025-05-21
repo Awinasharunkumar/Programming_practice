@@ -1,4 +1,4 @@
-//Day 17 if statement
+//Starting of C programming
 #include<stdio.h>
 int main(){
 printf("Enter your 12th mark ");
