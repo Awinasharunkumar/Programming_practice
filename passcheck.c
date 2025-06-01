@@ -3,7 +3,47 @@
 #include<stdlib.h>
 #include<ctype.h>
 #include<stdbool.h>
+#include<unistd.h>
 
+int check_pass(char *pass);			//Function Prototype 
+
+int main(){
+	char *pass;
+	//printf("Enter the password: ");
+	pass = getpass("Enter the pass: ");
+
+	int s=check_pass(pass);
+	switch (s){
+		case 0:
+			printf("weakest\n");
+			break;
+		case 1:
+		case 2:
+			printf("weak\n");
+			break;
+		case 3:
+		case 4:
+			printf("average\n");
+			break;
+		case 5:
+		case 6:
+			printf("medium\n");
+			break;
+		case 7:
+		case 8:
+			printf("strong\n");
+			break;
+		case 9:
+			printf("strongest\n");
+	}
+
+	return 0;
+}
+
+/*
+function checks the password strength and return as
+ 0-9 value
+*/
 int check_pass(char *pass){
 	int low=0,score=0,ind=0,num=0;
 	char number[10];
@@ -53,38 +93,3 @@ int check_pass(char *pass){
 
 	return score;
 }
-
-int main(){
-	char pass[25];
-	printf("Enter the password: ");
-	scanf("%s",&pass[0]);
-
-	int s=check_pass(pass);
-	switch (s){
-		case 0:
-			printf("weakest\n");
-			break;
-		case 1:
-		case 2:
-			printf("weak\n");
-			break;
-		case 3:
-		case 4:
-			printf("average\n");
-			break;
-		case 5:
-		case 6:
-			printf("medium\n");
-			break;
-		case 7:
-		case 8:
-			printf("strong\n");
-			break;
-		case 9:
-			printf("strongest\n");
-	}
-
-	return 0;
-}
-
-
